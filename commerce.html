@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>电商设计 - 作品</title>
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,Arial,Helvetica,sans-serif;background:#0b1020;color:#e5e7eb}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:24px 16px}
+    .top{display:flex;align-items:center;justify-content:space-between}
+    /* 两列网格，右列轻微下移营造错落感 */
+    .gallery{max-width:1100px;margin:24px auto 48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .card{border:1px solid rgba(148,163,184,.22);border-radius:12px;padding:0;background:rgba(255,255,255,.03);overflow:hidden}
+    .gallery .card:nth-child(2n){transform:translateY(30px)}
+    .thumb{position:relative;background:#0b1020}
+    .thumb img{display:block;width:100%;height:auto;object-fit:contain;background:#0b1020}
+    .meta{display:flex;align-items:center;justify-content:flex-end;padding:8px 10px}
+    .muted{color:#94a3b8;font-size:12px}
+    /* 预览弹窗 */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:1000}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92vw;max-height:90vh;box-shadow:0 20px 60px rgba(0,0,0,.6);border-radius:8px}
+    .lightbox .close{position:absolute;top:20px;right:24px;color:#e5e7eb;font-size:20px;cursor:pointer;padding:6px 10px;border:1px solid rgba(148,163,184,.35);border-radius:8px;background:rgba(17,24,39,.4)}
+    .navbtn{position:absolute;top:50%;transform:translateY(-50%);color:#e5e7eb;background:rgba(17,24,39,.4);border:1px solid rgba(148,163,184,.35);border-radius:8px;padding:8px 10px;cursor:pointer}
+    .prev{left:24px}
+    .next{right:24px}
+    @media (max-width: 780px){.gallery{grid-template-columns:1fr}.gallery .card:nth-child(2n){transform:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <h1>电商设计</h1>
+      <a href="new-page.html">返回导航</a>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/小金扇.jpg" alt="图1" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/推广2.jpg" alt="图2" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/推广3.png" alt="图3" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/晨间.jpg" alt="图4" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/晨间1.jpg" alt="图5" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/晨间3.jpg" alt="图6" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/熬夜护肤1.jpg" alt="图7" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/熬夜护肤2.jpg" alt="图8" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/熬夜护肤3.jpg" alt="图9" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/甜品1.jpg" alt="图10" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/甜品2.jpg" alt="图11" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+      <figure class="card">
+        <div class="thumb"><img src="assets/work/电商设计/甜品3.jpg" alt="图12" loading="lazy"></div>
+        <figcaption class="meta"><span class="muted">点击放大</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- 预览弹窗 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close" id="lightboxClose" aria-label="关闭预览">关闭</button>
+    <button class="navbtn prev" id="lightboxPrev" aria-label="上一张">上一张</button>
+    <img id="lightboxImg" alt="预览" />
+    <button class="navbtn next" id="lightboxNext" aria-label="下一张">下一张</button>
+  </div>
+
+  <script>
+    (function(){
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+      const prevBtn = document.getElementById('lightboxPrev');
+      const nextBtn = document.getElementById('lightboxNext');
+      const thumbs = Array.from(document.querySelectorAll('.gallery .thumb img'));
+      let index = 0;
+
+      const openAt = (i) => {
+        index = (i + thumbs.length) % thumbs.length;
+        img.src = thumbs[index].currentSrc || thumbs[index].src;
+        box.classList.add('open');
+        box.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      };
+      const close = () => { box.classList.remove('open'); box.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; };
+      const showPrev = () => openAt(index - 1);
+      const showNext = () => openAt(index + 1);
+
+      thumbs.forEach((t, i) => t.addEventListener('click', () => openAt(i)));
+      box.addEventListener('click', (e) => { if (e.target === box) close(); });
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', (e)=>{ e.stopPropagation(); showPrev(); });
+      nextBtn.addEventListener('click', (e)=>{ e.stopPropagation(); showNext(); });
+      document.addEventListener('keydown', (e) => {
+        if (!box.classList.contains('open')) return;
+        if (e.key === 'Escape') return close();
+        if (e.key === 'ArrowLeft') return showPrev();
+        if (e.key === 'ArrowRight') return showNext();
+      });
+    })();
+  </script>
+</body>
+</html>

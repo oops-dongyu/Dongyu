@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>作品导航</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root { --bg: #0b1020; --fg: #e5e7eb; --muted: #9ca3af; --accent: #38bdf8; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--fg)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter: blur(8px);background:rgba(11,16,32,0.6);border-bottom:1px solid rgba(148,163,184,.2)}
+    .nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.08em}
+    .tabs{display:flex;gap:12px}
+    .tab{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--fg);transition:all .2s}
+    .tab:hover{background:rgba(255,255,255,.06);border-color:rgba(148,163,184,.4)}
+    .tab--accent{border-color:rgba(56,189,248,.55);background:rgba(56,189,248,.12)}
+    main{padding:56px 0 40px}
+    .hero{padding:48px 0 24px}
+    .subtitle{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">WORKS</div>
+      <nav class="tabs" aria-label="作品导航">
+        <a class="tab tab--accent" href="commerce.html">电商设计</a>
+        <a class="tab" href="marketing.html">营销设计</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <h1>请选择作品类别</h1>
+      <p class="subtitle">进入相应板块查看你的作品集，可随时返回再切换类别。</p>
+    </section>
+  </main>
+</body>
+</html>

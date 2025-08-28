@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>我的个人站点</title>
+  <meta name="description" content="一个简洁、响应式、可访问的个人主页示例" />
+  <meta property="og:title" content="我的个人站点" />
+  <meta property="og:description" content="一个简洁、响应式、可访问的个人主页示例" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    (function(){
+      try {
+        const saved = localStorage.getItem('theme');
+        const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) document.documentElement.classList.add('dark');
+      } catch(_) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="antialiased text-slate-800 bg-white dark:bg-slate-900 dark:text-slate-100">
+  <div class="custom-cursor" id="customCursor"></div>
+  <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:text-sky-600 focus:px-3 focus:py-2 focus:rounded" href="#main">跳到主内容</a>
+
+  <header class="sticky top-0 z-40 bg-transparent">
+    <nav class="container mx-auto px-4 flex items-center justify-between h-14" aria-label="主导航">
+      <a href="#home" class="font-bold text-white" data-nav>BLUE</a>
+      <button id="menuButton" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
+        <span class="sr-only">打开菜单</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-white/80">
+        <li><a class="hover:text-white" href="#about" data-nav>关于</a></li>
+        <li><a class="hover:text-white" href="#projects" data-nav>项目</a></li>
+        <li><a class="hover:text-white" href="#contact" data-nav>联系</a></li>
+        <li>
+          <button id="themeToggle" class="ml-2 inline-flex items-center px-3 py-1.5 rounded-full border border-white/40 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60" aria-pressed="false" title="切换深浅色">主题</button>
+        </li>
+      </ul>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden" role="dialog" aria-label="移动菜单">
+      <ul class="px-4 py-3 space-y-2 text-sm text-white/90">
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="#about" data-nav>关于</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="#projects" data-nav>项目</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="#contact" data-nav>联系</a></li>
+        <li><button id="themeToggleMobile" class="block w-full text-left px-3 py-2 rounded hover:bg-white/10">切换主题</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" class="">
+    <section id="home" class="relative h-screen overflow-hidden" style="background-image: url('背景.png'); background-size: cover; background-position: center;">
+      <div class="container mx-auto px-4 h-full flex items-center relative">
+        <div class="max-w-2xl text-left" style="transform: translateY(-15px);">
+          <h1 class="mt-4 font-extrabold leading-tight text-white" style="font-size: clamp(2.5rem, 6vw, 5rem);" data-animate>
+            DONGYU<br />PORTFOLIO
+          </h1>
+          <p class="mt-3 text-white/80" data-animate>DESIGN</p>
+          <div class="mt-8 flex gap-4" data-animate>
+                         <a href="new-page.html" target="_blank" class="inline-flex items-center px-5 py-2.5 rounded-full bg-white/90 text-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white">GO</a>
+          </div>
+        </div>
+
+        
+
+        <a href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank" rel="noopener noreferrer" class="pill-btn hidden md:inline-flex items-center gap-2 absolute right-8 top-6 text-white px-4 py-2 rounded-full" data-animate>
+          <span class="text-sm">小红书</span>
+        </a>
+        <a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer" class="pill-btn hidden md:inline-flex items-center gap-2 absolute right-32 top-6 text-white px-4 py-2 rounded-full" data-animate>
+          <span class="text-sm">抖音</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="hidden bg-slate-50 border-y border-slate-200 dark:bg-slate-900 dark:border-slate-800">
+      <div class="container mx-auto px-4 py-16 md:py-20">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white" data-animate>关于我</h2>
+        <p class="mt-4 text-slate-700 dark:text-slate-300 leading-7" data-animate>拥有 10+ 年 Web 开发经验，熟悉 HTML、CSS、JavaScript、React、Vue.js、Node.js、Webpack、TypeScript。坚持简洁架构与高可维护性。</p>
+        <ul class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-slate-700">
+          <li class="p-4 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>组件化与可复用性</li>
+          <li class="p-4 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>性能优化与可访问性</li>
+          <li class="p-4 rounded-lg border bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>前后端协作与工程化</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="hidden container mx-auto px-4 py-16 md:py-20">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white" data-animate>项目</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="border rounded-lg p-4 bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>
+          <h3 class="font-semibold">项目 A</h3>
+          <p class="mt-2 text-sm text-slate-600">简要描述，突出价值与成果。</p>
+          <a class="mt-3 inline-flex text-sky-600 hover:underline" href="#" target="_blank" rel="noopener noreferrer">查看详情</a>
+        </article>
+        <article class="border rounded-lg p-4 bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>
+          <h3 class="font-semibold">项目 B</h3>
+          <p class="mt-2 text-sm text-slate-600">简要描述，突出价值与成果。</p>
+          <a class="mt-3 inline-flex text-sky-600 hover:underline" href="#" target="_blank" rel="noopener noreferrer">查看详情</a>
+        </article>
+        <article class="border rounded-lg p-4 bg-white dark:bg-slate-800 dark:border-slate-700" data-animate>
+          <h3 class="font-semibold">项目 C</h3>
+          <p class="mt-2 text-sm text-slate-600">简要描述，突出价值与成果。</p>
+          <a class="mt-3 inline-flex text-sky-600 hover:underline" href="#" target="_blank" rel="noopener noreferrer">查看详情</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="hidden bg-slate-50 border-y border-slate-200 dark:bg-slate-900 dark:border-slate-800">
+      <div class="container mx-auto px-4 py-16 md:py-20">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white" data-animate>联系我</h2>
+        <form id="contactForm" class="mt-6 max-w-xl space-y-4" novalidate data-animate>
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-700">姓名</label>
+            <input id="name" name="name" type="text" required aria-required="true" class="mt-1 w-full rounded border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="请输入姓名" />
+            <p id="nameError" class="mt-1 text-sm text-rose-600 hidden" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-700">邮箱</label>
+            <input id="email" name="email" type="email" required aria-required="true" class="mt-1 w-full rounded border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="you@example.com" />
+            <p id="emailError" class="mt-1 text-sm text-rose-600 hidden" aria-live="polite"></p>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-700">留言</label>
+            <textarea id="message" name="message" rows="4" required aria-required="true" class="mt-1 w-full rounded border-slate-300 focus:border-sky-500 focus:ring-sky-500" placeholder="想对我说的话..."></textarea>
+            <p id="messageError" class="mt-1 text-sm text-rose-600 hidden" aria-live="polite"></p>
+          </div>
+          <button type="submit" class="inline-flex items-center px-4 py-2 rounded bg-sky-600 text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">发送</button>
+          <p id="formSuccess" class="text-sm text-emerald-600 hidden" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" class="hidden fixed bottom-6 right-6 p-3 rounded-full bg-sky-600 text-white shadow-lg hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500" aria-label="返回顶部">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+  </button>
+
+  <footer class="border-t border-slate-200">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between text-sm text-slate-600">
+      <p>© <span id="year"></span> Your Name</p>
+      <div class="flex gap-4">
+        <a class="hover:text-sky-600" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+        <a class="hover:text-sky-600" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
