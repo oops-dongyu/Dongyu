@@ -1,0 +1,85 @@
+/* 基础全局补充样式（Tailwind 为主，这里仅少量增强） */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  cursor: none; /* 隐藏默认光标 */
+}
+
+.hidden { display: none; }
+
+/* Hero 深蓝渐变背景，参考示例排版风格 */
+.hero-gradient {
+  background: radial-gradient(1200px 700px at 75% 30%, rgba(46,94,255,0.35) 0%, rgba(14,23,42,0.0) 45%),
+              linear-gradient(180deg, #0b1020 0%, #132043 35%, #102a6b 70%, #0f2a85 100%);
+}
+
+/* Hero 右侧插图容器，避免溢出并提供视觉漂浮感 */
+.hero-illustration {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: min(48vw, 720px);
+  pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+}
+
+.hero-illustration img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 顶部右上角的胶囊按钮外观 */
+.pill-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* 进入动效 */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up .6s ease-out both; }
+
+/* 导航随滚动渐显背景 */
+.nav-backdrop {
+  background: linear-gradient(180deg, rgba(2,6,23,0.75) 0%, rgba(2,6,23,0.45) 60%, rgba(2,6,23,0.0) 100%);
+  backdrop-filter: blur(8px);
+}
+
+/* 卡片悬浮视差 */
+.card-tilt {
+  transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.card-tilt:hover {
+  box-shadow: 0 20px 40px rgba(2,6,23,0.28);
+}
+
+/* 自定义圆圈光标 */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
