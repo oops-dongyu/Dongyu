@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>文章 - 我的个人站点</title>
+  <meta name="description" content="探索AIGC与设计的更多可能" />
+  
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="antialiased text-white bg-black">
+  <div class="custom-cursor" id="customCursor"></div>
+  
+  <!-- 顶部菜单栏 -->
+  <header class="sticky top-0 z-40 m-0 p-0" style="background-color: rgb(5, 3, 40);">
+    <nav class="container mx-auto px-4 flex items-center justify-between py-4" aria-label="主导航">
+      <a href="index.html" class="flex items-center">
+        <img src="鱼.png" alt="Logo" class="h-8 w-auto">
+      </a>
+      <button id="menuButton" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
+        <span class="sr-only">打开菜单</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-white">
+        <li><a class="nav-link hover:text-gray-300" href="index.html">首页</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="about.html">关于我</a></li>
+        <li><a class="nav-link hover:text-gray-300 text-white font-semibold" href="articles.html">文章</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank" rel="noopener noreferrer">小红书</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="#projects">设计作品</a></li>
+      </ul>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden" role="dialog" aria-label="移动菜单" style="background-color: rgb(5, 3, 40);">
+      <ul class="px-4 py-3 space-y-2 text-sm text-white">
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="index.html">首页</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="about.html">关于我</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10 bg-white/10" href="articles.html">文章</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank">小红书</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="#projects">设计作品</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="min-h-screen bg-black py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-12">文章</h1>
+      
+      <!-- 文章网格 -->
+      <div id="articlesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 文章卡片 1 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden">
+            <img src="赛博背景.png" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI视频</span>
+              <span class="text-xs text-gray-500">2025-10-10</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">从好莱坞到朋友圈：它想让你的 AI 视频代替表情包</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">当全世界都在等 OpenAI 放出更"逼真"的新视频产品 API，它却反手掏出一款"TikTok 版 AI 视频朋友圈"...</p>
+            <a href="https://www.woshipm.com/ai/6276610.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+        <!-- 文章卡片 2 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-green-900 to-blue-900">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI视频</span>
+              <span class="text-xs text-gray-500">2024-06-12</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">AIGC实践 | 用AI制作视频短片创作全流程</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">本篇文章将详细展示如何使用AI工具从概念构思到画面生成再到最终成片的全过程，涵盖剧本...</p>
+            <a href="#" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+        <!-- 文章卡片 3 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-orange-900 to-red-900">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI微短剧</span>
+              <span class="text-xs text-gray-500">2024-11-29</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">AIGC实践 | AI助力微短剧创作全流程探索</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">在本次的AI创作中，更多的精力用在故事脚本的部分，希望通过这个故事展示生存的多维度...</p>
+            <a href="#" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+        <!-- 文章卡片 4 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-purple-900 to-pink-900">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI游戏</span>
+              <span class="text-xs text-gray-500">2024-10-15</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">探索用AI实现贴士风游戏开发全流程</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">深入探讨如何利用AI工具完成从游戏设计、角色创建到场景搭建的完整开发流程...</p>
+            <a href="#" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+        <!-- 文章卡片 5 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-teal-900 to-cyan-900">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI设计</span>
+              <span class="text-xs text-gray-500">2024-09-08</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">探索用AI实现包装设计全流程</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">分享如何使用AI工具完成从创意构思到最终落地的包装设计全过程，提升设计效率...</p>
+            <a href="#" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+        <!-- 文章卡片 6 -->
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br from-green-700 to-emerald-900">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">AI绘本</span>
+              <span class="text-xs text-gray-500">2024-08-20</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">用AI工具打造动态有声绘本</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">探索AI在儿童绘本创作中的应用，从故事编写到插画生成，再到配音合成的完整流程...</p>
+            <a href="#" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+
+      </div>
+      
+      <!-- 加载更多按钮 -->
+      <div class="text-center mt-12">
+        <button id="loadMoreBtn" class="px-8 py-3 bg-sky-600 text-white rounded-full hover:bg-sky-700 transition-colors">
+          加载更多文章
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="border-t border-white/10 mt-20">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between text-sm text-gray-400">
+      <p>© <span id="year"></span> DONGYU</p>
+      <div class="flex gap-4">
+        <a class="hover:text-sky-600" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank" rel="noopener noreferrer">小红书</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // 文章数据
+    const articlesData = [
+      {
+        title: "AIGC实践 | AI助力微短剧创作全流程探索",
+        category: "AI微短剧",
+        date: "2024-11-29",
+        description: "在本次的AI创作中，更多的精力用在故事脚本的部分，希望通过这个故事展示生存的多维度...",
+        link: "#"
+      },
+      {
+        title: "探索用AI实现贴士风游戏开发全流程",
+        category: "AI游戏",
+        date: "2024-10-15",
+        description: "深入探讨如何利用AI工具完成从游戏设计、角色创建到场景搭建的完整开发流程...",
+        link: "#"
+      },
+      {
+        title: "探索用AI实现包装设计全流程",
+        category: "AI设计",
+        date: "2024-09-08",
+        description: "分享如何使用AI工具完成从创意构思到最终落地的包装设计全过程，提升设计效率...",
+        link: "#"
+      },
+      {
+        title: "用AI工具打造动态有声绘本",
+        category: "AI绘本",
+        date: "2024-08-20",
+        description: "探索AI在儿童绘本创作中的应用，从故事编写到插画生成，再到配音合成的完整流程...",
+        link: "#"
+      },
+      {
+        title: "AI在电商设计中的应用实践",
+        category: "AI电商",
+        date: "2024-07-12",
+        description: "从商品图片生成到页面设计，AI如何提升电商设计的效率和质量...",
+        link: "#"
+      },
+      {
+        title: "AIGC在品牌视觉设计中的创新应用",
+        category: "AI品牌",
+        date: "2024-06-25",
+        description: "探讨AI生成内容在品牌视觉识别系统中的应用，如何保持品牌一致性...",
+        link: "#"
+      }
+    ];
+
+    let currentPage = 1;
+    const articlesPerPage = 6;
+
+    // 创建文章卡片HTML
+    function createArticleCard(article, index) {
+      const gradients = [
+        'from-green-900 to-blue-900',
+        'from-orange-900 to-red-900',
+        'from-purple-900 to-pink-900',
+        'from-teal-900 to-cyan-900',
+        'from-green-700 to-emerald-900',
+        'from-indigo-900 to-purple-900'
+      ];
+      
+      const gradientClass = gradients[index % gradients.length];
+      
+      return `
+        <article class="group bg-gray-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+          <div class="relative h-48 overflow-hidden bg-gradient-to-br ${gradientClass}">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="文章封面" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 text-xs rounded-full" style="background-color: rgba(14, 165, 233, 0.2); color: rgb(14, 165, 233);">${article.category}</span>
+              <span class="text-xs text-gray-500">${article.date}</span>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2 line-clamp-2">${article.title}</h2>
+            <p class="text-sm text-gray-400 mb-4 line-clamp-3">${article.description}</p>
+            <a href="${article.link}" class="inline-flex items-center text-sky-400 hover:text-sky-300 text-sm">
+              阅读全文 →
+            </a>
+          </div>
+        </article>
+      `;
+    }
+
+    // 加载更多文章
+    function loadMoreArticles() {
+      const startIndex = currentPage * articlesPerPage;
+      const endIndex = startIndex + articlesPerPage;
+      const articlesToShow = articlesData.slice(startIndex, endIndex);
+      
+      if (articlesToShow.length === 0) {
+        document.getElementById('loadMoreBtn').textContent = '没有更多文章了';
+        document.getElementById('loadMoreBtn').disabled = true;
+        return;
+      }
+      
+      const articlesGrid = document.getElementById('articlesGrid');
+      articlesToShow.forEach((article, index) => {
+        const articleCard = document.createElement('div');
+        articleCard.innerHTML = createArticleCard(article, startIndex + index);
+        articlesGrid.appendChild(articleCard.firstElementChild);
+      });
+      
+      currentPage++;
+    }
+
+    // 绑定加载更多按钮事件
+    document.getElementById('loadMoreBtn').addEventListener('click', loadMoreArticles);
+
+    // 滚动加载（可选）
+    let isLoading = false;
+    window.addEventListener('scroll', () => {
+      if (isLoading) return;
+      
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      if (scrollTop + windowHeight >= documentHeight - 100) {
+        isLoading = true;
+        setTimeout(() => {
+          loadMoreArticles();
+          isLoading = false;
+        }, 500);
+      }
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>关于我 - 我的个人站点</title>
+  <meta name="description" content="了解更多关于我的信息" />
+  
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="antialiased text-white bg-black">
+  <div class="custom-cursor" id="customCursor"></div>
+  
+  <!-- 顶部菜单栏 -->
+  <header class="sticky top-0 z-40 m-0 p-0" style="background-color: rgb(5, 3, 40);">
+    <nav class="container mx-auto px-4 flex items-center justify-between py-4" aria-label="主导航">
+      <a href="index.html" class="flex items-center">
+        <img src="鱼.png" alt="Logo" class="h-8 w-auto">
+      </a>
+      <button id="menuButton" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded hover:bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/60">
+        <span class="sr-only">打开菜单</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-white">
+        <li><a class="nav-link hover:text-gray-300" href="index.html">首页</a></li>
+        <li><a class="nav-link hover:text-gray-300 text-white font-semibold" href="about.html">关于我</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="articles.html">文章</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank" rel="noopener noreferrer">小红书</a></li>
+        <li><a class="nav-link hover:text-gray-300" href="#projects">设计作品</a></li>
+      </ul>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden" role="dialog" aria-label="移动菜单" style="background-color: rgb(5, 3, 40);">
+      <ul class="px-4 py-3 space-y-2 text-sm text-white">
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="index.html">首页</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10 bg-white/10" href="about.html">关于我</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="articles.html">文章</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank">小红书</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-white/10" href="#projects">设计作品</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="min-h-screen bg-black flex items-center">
+    <section class="container mx-auto px-4 py-4" style="transform: translateY(-20px);">
+      <div class="grid md:grid-cols-2 gap-12 items-center" style="min-height: calc(100vh - 100px);">
+        <!-- 左侧文字内容 -->
+        <div class="space-y-6" data-animate style="transform: translateY(40px);">
+          <div style="transform: translateY(-20px);">
+            <h1 class="text-3xl md:text-4xl font-bold text-white">
+              关于我
+            </h1>
+            <p class="text-lg text-gray-400 mt-4" style="letter-spacing: 0.03em;">
+              「一个人 + AI = 一个团队」的践行者，探索个人与AI协作的无限可能
+            </p>
+          </div>
+          <div class="space-y-4 text-base text-gray-300 leading-relaxed" style="letter-spacing: 0.05em;">
+            <p>
+              HELLO，我是冻鱼，一名热爱探索的视觉设计师、AIGC 探索者 、内容创作者、自媒体小博主 。
+            </p>
+            <p>
+              视觉传达设计专业，擅长将「好看」与「好用」巧妙结合，打磨每一处细节。
+            </p>
+            <p>
+              水瓶座，ENTJ, 是个有点I的E人。一半理性分析，一半天马行空。
+            </p>
+            <p>
+              热衷探索 AIGC 在更多场景的落地实践，致力于让AI成为我的"工作伙伴"。
+            </p>
+            <p>
+              如果你对设计、AIGC感兴趣，欢迎来找我聊聊，说不定我们可以一起整点不一样的活！
+            </p>
+          </div>
+          
+          <!-- 技能标签 -->
+          <div class="pt-4">
+            <h2 class="text-xl font-semibold text-white mb-4">专业技能</h2>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background-color: rgba(14, 165, 233, 0.15);">视觉设计</span>
+              <span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background-color: rgba(14, 165, 233, 0.15);">营销设计</span>
+              <span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background-color: rgba(14, 165, 233, 0.15);">电商设计</span>
+              <span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background-color: rgba(14, 165, 233, 0.15);">AIGC设计</span>
+              <span class="px-4 py-2 rounded-full text-sm text-gray-300" style="background-color: rgba(14, 165, 233, 0.15);">AI训练师</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右侧图片 -->
+        <div class="relative h-full flex justify-end items-end" data-animate style="min-height: calc(100vh - 100px);">
+          <div class="overflow-hidden shadow-2xl" style="width: 80%; height: 105%; transform: translateY(35px);">
+            <img 
+              src="美照.jpg" 
+              alt="关于我" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <!-- 装饰元素 -->
+          <div class="absolute -z-10 top-8 -right-8 w-72 h-72 bg-sky-500 rounded-full blur-3xl opacity-20"></div>
+          <div class="absolute -z-10 -bottom-8 -left-8 w-72 h-72 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="border-t border-white/10">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between text-sm text-gray-400">
+      <p>© <span id="year"></span> DONGYU</p>
+      <div class="flex gap-4">
+        <a class="hover:text-sky-600" href="https://www.xiaohongshu.com/user/profile/5eae8c4c00000000010075e4" target="_blank" rel="noopener noreferrer">小红书</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
